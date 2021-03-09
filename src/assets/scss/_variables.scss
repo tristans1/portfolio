@@ -1,0 +1,133 @@
+// VARIABLES ET ÉLÉMENTS UNIQUES
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap');
+
+$color-orange: #FF8C1A;
+$color-black: #383838;
+$color-blue : #6495ED;
+$font-principale : 'Open Sans', sans-serif;
+$font-secondaire: 'Playfair Display', serif;
+
+
+// ÉLÉMENTS UNIQUES
+
+
+
+// CURSOR
+a:hover, .letter-spaced:hover, .link:hover {
+  cursor: ne-resize !important;
+}
+
+.g-cursor {
+  z-index: 100 !important;
+  position: absolute;
+
+  &_hide {
+    opacity: 1;
+    /*width: 60px;
+    height: 60px;*/
+    transition: width .6s ease,
+    height .6s ease,
+    opacity .6s ease;
+  }
+
+  &__circle {
+    pointer-events: none;
+    user-select: none;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    /*border: 2px solid #383838;*/
+    border-radius: 100%;
+    z-index: 5555;
+    backface-visibility: hidden;
+    transition: opacity .6s ease;
+  }
+
+  &__point {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    user-select: none;
+    border-radius: 100%;
+    background: #383838;
+    z-index: 55555555;
+    backface-visibility: hidden;
+    will-change: transform;
+  }
+
+  &_hover {
+    .g-cursor__circle {
+      opacity: 0;
+      width: 60px;
+      height: 60px;
+      transition: width .6s ease,
+      height .6s ease,
+      opacity .6s ease;
+    }
+  }
+}
+
+.g-cursor, .g-cursor__circle {
+  mix-blend-mode: difference;
+}
+
+.g-cursor__circle {
+  background: #fff !important;
+  border: none;
+}
+
+
+//SCROLL DOWN
+.scroll-down a, .scroll-down::after, .scroll-down::before {
+  color: white;
+  border-color: #fff !important;
+}
+
+.scroll-down {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  left: 50%;
+  cursor: pointer;
+  transform: translateX(-50%);
+  bottom: 20px;
+  z-index: 1;
+  text-align: center;
+}
+
+.scroll-down::before,
+.scroll-down::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  border: solid 2px #383838;
+  height: 10px;
+  width: 10px;
+  transform: translate(-50%, -100%) rotate(45deg);
+  border-top: transparent;
+  border-left: transparent;
+  animation: scroll-down ease-in-out 1s infinite;
+}
+
+.scroll-down::after {
+  top: 30%;
+  animation-delay: .3s;
+}
+
+.scroll-down a {
+  position: relative;
+  top: -19px !important;
+  letter-spacing: .2rem;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+
+
